@@ -1,6 +1,7 @@
 node {
     def app
 
+    parameters { string(name: 'DOCKERTAG', defaultValue: '1', description: '') }
     stage('Clone repository') {
         checkout scm
     }
