@@ -18,7 +18,7 @@ spec:
         app: flaskdemo
     spec:
       containers:
-      - image: fatninja/kubetest:16
+      - image: fatninja/kubetest:17
         name: flaskdemo
         resources: {}
 status: {}
