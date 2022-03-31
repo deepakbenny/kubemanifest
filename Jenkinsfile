@@ -1,7 +1,6 @@
 node {
     def app
 
-    parameters { string(name: 'DOCKERTAG', defaultValue: '1', description: '') }
     stage('Clone repository') {
         checkout scm
     }
@@ -15,7 +14,7 @@ node {
                         sh "git config user.name deepakbenny"
                         //sh "git switch master"
                         sh "cat deployment.yaml"
-                        sh "sed -i '' 's+fatninja/kubetest.*+fatninja/kubetest:${DOCKERTAG}+g' deployment.yaml"
+                        sh "sed -i '' 's+fatninja/kubetest.*+fatninja/kubetest:${params.DOCKERTAG}+g' deployment.yaml"
                         sh "cat deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Updating maniftest file: Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
